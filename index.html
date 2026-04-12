@@ -1,0 +1,408 @@
+# audi
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audi Official Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        audiRed: '#b50000',
+                        audiDark: '#0f0f0f',
+                        audiLight: '#f5f5f5'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+        body {
+            font-family: 'Roboto', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .audi-font {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(rgba(15, 15, 15, 0.8), rgba(15, 15, 15, 0.9)), url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3') center/cover no-repeat;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .car-card:hover .car-image {
+            transform: scale(1.05);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #b50000;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-audiDark text-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-audiDark bg-opacity-90 backdrop-blur-sm z-50 border-b border-gray-800">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-car-alt text-audiRed text-3xl mr-2"></i>
+                <span class="text-2xl font-bold audi-font">AUDI</span>
+            </div>
+            
+            <div class="hidden md:flex space-x-8">
+                <button class="nav-link text-sm font-medium hover:text-audiRed transition-colors">Models</button>
+                <button class="nav-link text-sm font-medium hover:text-audiRed transition-colors">Technology</button>
+                <button class="nav-link text-sm font-medium hover:text-audiRed transition-colors">Performance</button>
+                <button class="nav-link text-sm font-medium hover:text-audiRed transition-colors">Sustainability</button>
+                <button class="nav-link text-sm font-medium hover:text-audiRed transition-colors">Service</button>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <button class="hidden md:block text-sm font-medium hover:text-audiRed transition-colors">Find a Dealer</button>
+                <button class="bg-audiRed hover:bg-red-800 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">Contact</button>
+                <button class="md:hidden text-xl"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient h-screen flex items-center justify-center relative pt-16">
+        <div class="container mx-auto px-4 text-center z-10 fade-in">
+            <h1 class="text-5xl md:text-7xl font-bold audi-font mb-6">Audi</h1>
+            <h2 class="text-2xl md:text-4xl font-light mb-8">Engineering Excellence</h2>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto mb-10">Experience the perfect blend of innovation, performance, and luxury with Audi's cutting-edge technology and design.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button class="bg-audiRed hover:bg-red-800 text-white px-8 py-3 rounded-md font-medium text-lg transition-colors shadow-lg transform hover:scale-105">Explore Models</button>
+                <button class="border-2 border-white hover:border-audiRed text-white hover:bg-audiRed px-8 py-3 rounded-md font-medium text-lg transition-all">Learn More</button>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- Featured Models -->
+    <section class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold audi-font mb-4">Featured Models</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Discover our range of premium vehicles designed for excellence and performance</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Model Card 1 -->
+                <div class="bg-gray-800 rounded-xl overflow-hidden car-card group">
+                    <div class="car-image relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1542362567-b07e54358753?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Audi A4" class="w-full h-64 object-cover transition-transform duration-500">
+                        <div class="absolute top-4 right-4 bg-audiRed text-white px-3 py-1 rounded-full text-sm font-medium">New</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Audi A4</h3>
+                        <p class="text-gray-400 mb-4">Luxury sedan with advanced technology and superior performance</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-audiRed">From $42,000</span>
+                            <button class="text-audiRed hover:text-red-400 font-medium">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Model Card 2 -->
+                <div class="bg-gray-800 rounded-xl overflow-hidden car-card group">
+                    <div class="car-image relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Audi Q5" class="w-full h-64 object-cover transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Audi Q5</h3>
+                        <p class="text-gray-400 mb-4">Premium SUV combining comfort, style, and all-wheel drive capability</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-audiRed">From $45,000</span>
+                            <button class="text-audiRed hover:text-red-400 font-medium">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Model Card 3 -->
+                <div class="bg-gray-800 rounded-xl overflow-hidden car-card group">
+                    <div class="car-image relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Audi e-tron" class="w-full h-64 object-cover transition-transform duration-500">
+                        <div class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-medium">Electric</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Audi e-tron</h3>
+                        <p class="text-gray-400 mb-4">First electric SUV with innovative technology and sustainable design</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-audiRed">From $65,000</span>
+                            <button class="text-audiRed hover:text-red-400 font-medium">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="py-20 bg-audiDark">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2 fade-in">
+                    <h2 class="text-4xl font-bold audi-font mb-6">Innovation at Its Core</h2>
+                    <p class="text-gray-400 mb-6">Audi's commitment to technological advancement drives every aspect of our vehicles, from performance to connectivity.</p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-audiRed mt-1 mr-3"></i>
+                            <span><span class="font-semibold">Virtual Cockpit:</span> Digital instrument cluster with customizable displays</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-audiRed mt-1 mr-3"></i>
+                            <span><span class="font-semibold">Audi connect:</span> Advanced infotainment system with seamless smartphone integration</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-audiRed mt-1 mr-3"></i>
+                            <span><span class="font-semibold">Adaptive Air Suspension:</span> Intelligent suspension for enhanced driving dynamics</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-audiRed mt-1 mr-3"></i>
+                            <span><span class="font-semibold">Audi pre sense:</span> Predictive safety systems for proactive protection</span>
+                        </li>
+                    </ul>
+                    <button class="bg-audiRed hover:bg-red-800 text-white px-6 py-3 rounded-md font-medium transition-colors">Discover More</button>
+                </div>
+                <div class="lg:w-1/2 fade-in">
+                    <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Audi Technology" class="rounded-xl shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Section -->
+    <section class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold audi-font mb-4">Performance Excellence</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Experience the thrill of precision engineering and exceptional driving dynamics</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center p-6 bg-gray-800 rounded-xl hover:bg-gray-700 transition-colors">
+                    <div class="text-5xl font-bold text-audiRed mb-4">0-100 km/h</div>
+                    <div class="text-2xl font-semibold mb-2">3.9s</div>
+                    <p class="text-gray-400">Quattro Sportback e-tron</p>
+                </div>
+                
+                <div class="text-center p-6 bg-gray-800 rounded-xl hover:bg-gray-700 transition-colors">
+                    <div class="text-5xl font-bold text-audiRed mb-4">Top Speed</div>
+                    <div class="text-2xl font-semibold mb-2">330 km/h</div>
+                    <p class="text-gray-400">Audi R8</p>
+                </div>
+                
+                <div class="text-center p-6 bg-gray-800 rounded-xl hover:bg-gray-700 transition-colors">
+                    <div class="text-5xl font-bold text-audiRed mb-4">Efficiency</div>
+                    <div class="text-2xl font-semibold mb-2">200 km</div>
+                    <p class="text-gray-400">Electric range</p>
+                </div>
+                
+                <div class="text-center p-6 bg-gray-800 rounded-xl hover:bg-gray-700 transition-colors">
+                    <div class="text-5xl font-bold text-audiRed mb-4">Torque</div>
+                    <div class="text-2xl font-semibold mb-2">500 Nm</div>
+                    <p class="text-gray-400">Audi e-tron GT</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-audiDark">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold audi-font mb-4">Customer Stories</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Real experiences from Audi owners around the world</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-800 p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Michael Johnson</h4>
+                            <p class="text-gray-400 text-sm">Audi A4 Owner</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic">"The balance between performance, comfort, and technology is unmatched. The virtual cockpit makes every drive enjoyable."</p>
+                    <div class="flex text-yellow-400 mt-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Sarah Williams</h4>
+                            <p class="text-gray-400 text-sm">Audi e-tron Owner</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic">"Driving electric has never been more exciting. The efficiency and instant torque make it perfect for daily commuting."</p>
+                    <div class="flex text-yellow-400 mt-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">David Chen</h4>
+                            <p class="text-gray-400 text-sm">Audi Q5 Owner</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic">"The perfect blend of luxury and utility. The adaptive air suspension makes every journey comfortable, even on rough roads."</p>
+                    <div class="flex text-yellow-400 mt-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-audiRed to-red-800">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-6">Ready to Experience Audi?</h2>
+            <p class="text-xl mb-10 max-w-2xl mx-auto">Visit your nearest Audi dealer or schedule a test drive today</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button class="bg-white text-audiRed hover:bg-gray-100 px-8 py-3 rounded-md font-medium text-lg transition-colors shadow-lg transform hover:scale-105">Find a Dealer</button>
+                <button class="bg-transparent border-2 border-white hover:bg-white hover:text-audiRed px-8 py-3 rounded-md font-medium text-lg transition-all">Schedule Test Drive</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-car-alt text-audiRed text-3xl mr-2"></i>
+                        <span class="text-2xl font-bold audi-font">AUDI</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">Innovating the future of mobility with luxury, performance, and sustainability.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Models</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">A4</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Q5</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">e-tron</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">A8</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">R8</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Company</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Press</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Investors</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Sustainability</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Support</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Parts</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Warranty</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
+                <p>&copy; 2023 Audi AG. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Fade-in animation for elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('appear');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
